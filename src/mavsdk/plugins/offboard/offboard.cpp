@@ -33,6 +33,11 @@ void Offboard::start_async(const ResultCallback callback)
     _impl->start_async(callback);
 }
 
+Offboard::Result Offboard::setPosctl() const
+{
+    return _impl->setPosctl();
+}
+
 Offboard::Result Offboard::start() const
 {
     return _impl->start();

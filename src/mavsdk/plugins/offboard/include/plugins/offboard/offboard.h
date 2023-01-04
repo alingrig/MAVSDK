@@ -358,6 +358,9 @@ public:
      */
     using ResultCallback = std::function<void(Result)>;
 
+
+	Result setPosctl() const;
+
     /**
      * @brief Start offboard control.
      *
