@@ -910,6 +910,8 @@ public:
 
         rpc_obj->set_current_distance_m(distance_sensor.current_distance_m);
 
+        rpc_obj->set_orientation(distance_sensor.orientation);
+
         return rpc_obj;
     }
 
@@ -923,6 +925,8 @@ public:
         obj.maximum_distance_m = distance_sensor.maximum_distance_m();
 
         obj.current_distance_m = distance_sensor.current_distance_m();
+
+        obj.orientation = distance_sensor.orientation();
 
         return obj;
     }

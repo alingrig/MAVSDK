@@ -401,12 +401,12 @@ public:
             false}; /**< @brief True if the accelerometer is calibrated */
         bool is_magnetometer_calibration_ok{
             false}; /**< @brief True if the magnetometer is calibrated */
-        bool is_local_position_ok{false}; /**< @brief True if the local position estimate is good
+        bool is_local_position_ok{true}; /**< @brief True if the local position estimate is good
+                                            enough to fly in 'position control' mode */
+        bool is_global_position_ok{true}; /**< @brief True if the global position estimate is good
                                              enough to fly in 'position control' mode */
-        bool is_global_position_ok{false}; /**< @brief True if the global position estimate is good
-                                              enough to fly in 'position control' mode */
         bool is_home_position_ok{
-            false}; /**< @brief True if the home position has been initialized properly */
+            true}; /**< @brief True if the home position has been initialized properly */
         bool is_armable{false}; /**< @brief True if system can be armed */
     };
 
@@ -657,6 +657,7 @@ public:
             float(NAN)}; /**< @brief Maximum distance the sensor can measure, NaN if unknown. */
         float current_distance_m{
             float(NAN)}; /**< @brief Current distance reading, NaN if unknown. */
+        float orientation{float(NAN)}; /**< @brief Current orientation reading, NaN if unknown. */
     };
 
     /**

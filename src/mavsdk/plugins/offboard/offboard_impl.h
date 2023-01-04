@@ -21,6 +21,7 @@ public:
     void enable() override;
     void disable() override;
 
+    Offboard::Result setPosctl();
     Offboard::Result start();
     Offboard::Result stop();
 

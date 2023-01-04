@@ -18760,7 +18760,7 @@ class Health final :
   void _internal_set_is_magnetometer_calibration_ok(bool value);
   public:
 
-  // bool is_local_position_ok = 5 [(.mavsdk.options.default_value) = "false"];
+  // bool is_local_position_ok = 5 [(.mavsdk.options.default_value) = "true"];
   void clear_is_local_position_ok();
   bool is_local_position_ok() const;
   void set_is_local_position_ok(bool value);
@@ -18769,7 +18769,7 @@ class Health final :
   void _internal_set_is_local_position_ok(bool value);
   public:
 
-  // bool is_global_position_ok = 6 [(.mavsdk.options.default_value) = "false"];
+  // bool is_global_position_ok = 6 [(.mavsdk.options.default_value) = "true"];
   void clear_is_global_position_ok();
   bool is_global_position_ok() const;
   void set_is_global_position_ok(bool value);
@@ -18778,7 +18778,7 @@ class Health final :
   void _internal_set_is_global_position_ok(bool value);
   public:
 
-  // bool is_home_position_ok = 7 [(.mavsdk.options.default_value) = "false"];
+  // bool is_home_position_ok = 7 [(.mavsdk.options.default_value) = "true"];
   void clear_is_home_position_ok();
   bool is_home_position_ok() const;
   void set_is_home_position_ok(bool value);
@@ -20400,6 +20400,7 @@ class DistanceSensor final :
     kMinimumDistanceMFieldNumber = 1,
     kMaximumDistanceMFieldNumber = 2,
     kCurrentDistanceMFieldNumber = 3,
+    kOrientationFieldNumber = 4,
   };
   // float minimum_distance_m = 1 [(.mavsdk.options.default_value) = "NaN"];
   void clear_minimum_distance_m();
@@ -20428,6 +20429,15 @@ class DistanceSensor final :
   void _internal_set_current_distance_m(float value);
   public:
 
+  // float orientation = 4 [(.mavsdk.options.default_value) = "NaN"];
+  void clear_orientation();
+  float orientation() const;
+  void set_orientation(float value);
+  private:
+  float _internal_orientation() const;
+  void _internal_set_orientation(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:mavsdk.rpc.telemetry.DistanceSensor)
  private:
   class _Internal;
@@ -20438,6 +20448,7 @@ class DistanceSensor final :
   float minimum_distance_m_;
   float maximum_distance_m_;
   float current_distance_m_;
+  float orientation_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_telemetry_2ftelemetry_2eproto;
 };
@@ -29146,7 +29157,7 @@ inline void Health::set_is_magnetometer_calibration_ok(bool value) {
   // @@protoc_insertion_point(field_set:mavsdk.rpc.telemetry.Health.is_magnetometer_calibration_ok)
 }
 
-// bool is_local_position_ok = 5 [(.mavsdk.options.default_value) = "false"];
+// bool is_local_position_ok = 5 [(.mavsdk.options.default_value) = "true"];
 inline void Health::clear_is_local_position_ok() {
   is_local_position_ok_ = false;
 }
@@ -29166,7 +29177,7 @@ inline void Health::set_is_local_position_ok(bool value) {
   // @@protoc_insertion_point(field_set:mavsdk.rpc.telemetry.Health.is_local_position_ok)
 }
 
-// bool is_global_position_ok = 6 [(.mavsdk.options.default_value) = "false"];
+// bool is_global_position_ok = 6 [(.mavsdk.options.default_value) = "true"];
 inline void Health::clear_is_global_position_ok() {
   is_global_position_ok_ = false;
 }
@@ -29186,7 +29197,7 @@ inline void Health::set_is_global_position_ok(bool value) {
   // @@protoc_insertion_point(field_set:mavsdk.rpc.telemetry.Health.is_global_position_ok)
 }
 
-// bool is_home_position_ok = 7 [(.mavsdk.options.default_value) = "false"];
+// bool is_home_position_ok = 7 [(.mavsdk.options.default_value) = "true"];
 inline void Health::clear_is_home_position_ok() {
   is_home_position_ok_ = false;
 }
@@ -30351,6 +30362,26 @@ inline void DistanceSensor::_internal_set_current_distance_m(float value) {
 inline void DistanceSensor::set_current_distance_m(float value) {
   _internal_set_current_distance_m(value);
   // @@protoc_insertion_point(field_set:mavsdk.rpc.telemetry.DistanceSensor.current_distance_m)
+}
+
+// float orientation = 4 [(.mavsdk.options.default_value) = "NaN"];
+inline void DistanceSensor::clear_orientation() {
+  orientation_ = 0;
+}
+inline float DistanceSensor::_internal_orientation() const {
+  return orientation_;
+}
+inline float DistanceSensor::orientation() const {
+  // @@protoc_insertion_point(field_get:mavsdk.rpc.telemetry.DistanceSensor.orientation)
+  return _internal_orientation();
+}
+inline void DistanceSensor::_internal_set_orientation(float value) {
+  
+  orientation_ = value;
+}
+inline void DistanceSensor::set_orientation(float value) {
+  _internal_set_orientation(value);
+  // @@protoc_insertion_point(field_set:mavsdk.rpc.telemetry.DistanceSensor.orientation)
 }
 
 // -------------------------------------------------------------------

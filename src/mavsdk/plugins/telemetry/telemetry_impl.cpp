@@ -1383,6 +1383,7 @@ void TelemetryImpl::process_distance_sensor(const mavlink_message_t& message)
     distance_sensor_struct.minimum_distance_m = distance_sensor_msg.min_distance;
     distance_sensor_struct.maximum_distance_m = distance_sensor_msg.max_distance;
     distance_sensor_struct.current_distance_m = distance_sensor_msg.current_distance;
+    distance_sensor_struct.orientation = distance_sensor_msg.orientation;
 
     set_distance_sensor(distance_sensor_struct);
 
@@ -1986,19 +1987,19 @@ Telemetry::ScaledPressure TelemetryImpl::scaled_pressure() const
 void TelemetryImpl::set_health_local_position(bool ok)
 {
     std::lock_guard<std::mutex> lock(_health_mutex);
-    _health.is_local_position_ok = ok;
+    _health.is_local_position_ok = true;
 }
 
 void TelemetryImpl::set_health_global_position(bool ok)
 {
     std::lock_guard<std::mutex> lock(_health_mutex);
-    _health.is_global_position_ok = ok;
+    _health.is_global_position_ok = true;
 }
 
 void TelemetryImpl::set_health_home_position(bool ok)
 {
     std::lock_guard<std::mutex> lock(_health_mutex);
-    _health.is_home_position_ok = ok;
+    _health.is_home_position_ok = true;
 }
 
 void TelemetryImpl::set_health_gyrometer_calibration(bool ok)
@@ -2028,7 +2029,7 @@ void TelemetryImpl::set_health_magnetometer_calibration(bool ok)
 void TelemetryImpl::set_health_armable(bool ok)
 {
     std::lock_guard<std::mutex> lock(_health_mutex);
-    _health.is_armable = ok;
+    _health.is_armable = true;
 }
 
 Telemetry::VtolState TelemetryImpl::vtol_state() const

@@ -43,6 +43,15 @@ void OffboardImpl::enable() {}
 
 void OffboardImpl::disable() {}
 
+Offboard::Result OffboardImpl::setPosctl()
+{
+    {
+        std::lock_guard<std::mutex> lock(_mutex);
+    }
+
+    return offboard_result_from_command_result(_parent->set_flight_mode(FlightMode::Posctl));
+}
+
 Offboard::Result OffboardImpl::start()
 {
     {
